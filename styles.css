@@ -73,9 +73,10 @@ section {
 }
 
 /*The :not() pseudo-selector is used to target all elements that do not match the selector - in this case, any of your span elements that do not have the sr-only class. This ensures that your earlier rules for the span[class~="sr-only"] selector are not overwritten.*/
-span {
-    font-weight: normal;
-}
+
+/*not:span {
+    font-style: none;
+}*/
 
 table {
     border-collapse: collapse;
@@ -83,4 +84,82 @@ table {
     width: 100%;
     margin-top: 3rem;
     position: relative;
+}
+
+table caption {
+    color: #356eaf;
+    font-weight: normal;
+    font-size: 1.3em;
+    position: absolute;
+    top: -2.25rem;
+    left: 0.5rem;
+}
+
+tbody td {
+    width: 100vw;  /*fills viewport, This approach ensures that the width is fixed, whereas setting width specifically would allow the elements to shrink to the container.*/
+    min-width: 4rem;
+    max-width: 4rem;
+}
+
+tbody th {
+    width: calc(100% - 12rem);
+
+}
+
+/*The [attribute="value"] selector targets any element that has an attribute with a specific value. The below selector  targets specifically your tr elements with the total class*/
+tr[class="total"] {
+    border-bottom: 4px double #0a0a23;
+    font-weight: bold;
+}
+
+tr[class="total"] th {
+    text-align: left;
+    padding: 0.5rem 0 0.25rem 0.5rem;
+}
+
+tr.total td{
+    text-align: right;
+    padding: 0 0.25rem;
+}
+
+/*The :nth-of-type() pseudo-selector is used to target specific elements based on their order among siblings of the same type.*/
+tr.total td:nth-of-type(3) {
+    padding-right: 0.5rem;
+}
+
+tr.total:hover {
+    background-color: #99c9ff;
+}
+
+td.current {
+    font-style: italic;
+}
+
+tr.data {
+    background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+}
+
+tr.data th {
+    padding: 0.3rem 0 0 0.5rem;
+    text-align: left;
+}
+
+/* This selector to target the elements with the class set to description that are within your th elements in your .data table rows.*/
+tr.data th .description {
+    display: block;
+    font-style: italic;
+    font-weight: normal;
+    padding: 1rem 0 0.75rem;
+    margin-right: -13.5rem;
+}
+
+/* Create a selector to target the td elements within your tr.data elements. Vertically align the text to the top and horizontally align the text to the right*/
+tr.data td {
+    text-align: right;
+    vertical-align: top;
+    padding: 0.3rem 0.25rem 0;
+}
+
+tr.data td:last-of-type{
+    padding-right: 0.5rem;
 }
